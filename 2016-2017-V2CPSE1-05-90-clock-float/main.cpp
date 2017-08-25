@@ -3,42 +3,6 @@
 
 namespace target = hwlib::target;
 
-namespace hwlib {
-   class pin_fixed {
-   public:    
-      pin_fixed( pin_out & pin, bool v ){
-         pin.set( v );
-      } 
-   };
-};
-
-   // The OLED display is connected in a very funny way:
-   // the I2C pins are reversed, and two GPIO pins are
-   // (mis-) used as ground and power for the display.
-   // This works, and makes it very easy to connect the LCD,
-   // but don't take this as an advice to connect peripherals is this way
-   // unless you know very well what you are doing.
-class oled_buffered_d18_d21 {
-   target::pin_oc scl, sda;
-   hwlib::i2c_bus_bit_banged_scl_sda i2c_bus;
-   target::pin_out pin_gnd, pin_vcc;
-   hwlib::pin_fixed pin_gnd_fixed, pin_vcc_fixed;
-   
-public:
-   hwlib::glcd_oled_buffered oled;
-
-   oled_buffered_d18_d21():
-      scl( target::pins::sda ),
-      sda( target::pins::scl ),
-      i2c_bus( scl, sda ),
-      pin_gnd( target::pins::d18 ),
-      pin_vcc( target::pins::d19 ),
-      pin_gnd_fixed( pin_gnd, 0 ),
-      pin_vcc_fixed( pin_vcc, 1 ),
-      oled( i2c_bus, 0x3c )
-   {}   
-};
-
 double pow( double g, int n ){
    return ( n < 1 ) ? 1 : g * pow( g, n - 1 ); 
 }    
@@ -153,11 +117,14 @@ int main( void ){
    hwlib::wait_ms( 500 );   
    
    namespace target = hwlib::target;
-   auto hw    = oled_buffered_d18_d21();
-   auto sw_1  = target::pin_in( target::pins::d43 );
-   auto sw_2  = target::pin_in( target::pins::d45 );
-   auto sw_3  = target::pin_in( target::pins::d47 );
+   auto scl      = target::pin_oc( target::pins::scl );
+   auto sda      = target::pin_oc( target::pins::sda );
+   auto i2c_bus  = hwlib::i2c_bus_bit_banged_scl_sda( scl, sda );
+   auto oled     = hwlib::glcd_oled_buffered( i2c_bus, 0x3c );
+   auto sw_1     = target::pin_in( target::pins::d43 );
+   auto sw_2     = target::pin_in( target::pins::d45 );
+   auto sw_3     = target::pin_in( target::pins::d47 );
 
-   clock_demo( hw.oled, sw_1, sw_2, sw_3 );
+   clock_demo( oled, sw_1, sw_2, sw_3 );
 }
 

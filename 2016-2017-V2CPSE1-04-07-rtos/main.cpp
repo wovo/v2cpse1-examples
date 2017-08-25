@@ -13,9 +13,9 @@ public:
    void main() override {        
       for(;;){        
          led.set( 1 );             
-         sleep( d );        
+         hwlib::wait_ms( d );        
          led.set( 0 );             
-         sleep( d );
+         hwlib::wait_ms( d );
       }
    }
 };
@@ -29,10 +29,10 @@ public:
    
    void main() override {        
       for(;;){                    
-         sleep( 10'000 * rtos::us );        
+         hwlib::wait_ms( 10 );        
          if( button.get() == 0 ){
             rtos::print( hwlib::cout );
-            sleep( 2'000'000 * rtos::us );
+            hwlib::wait_ms( 2'000 );
          }
       }
    }
@@ -49,11 +49,11 @@ int main(){
    hwlib::wait_ms( 500 );   
    
    auto led1 = target::pin_out( target::pins::d42 );
-   auto b1 = blinker( led1, 50'000 * rtos::us, "blink led1" );
+   auto b1 = blinker( led1, 50, "blink led1" );
    (void) b1;
    
    auto led2 = target::pin_out( target::pins::d44 );
-   auto b2 = blinker( led2, 165'000 * rtos::us,"blink led2" );
+   auto b2 = blinker( led2, 165,"blink led2" );
    (void) b2;
     
    auto button = target::pin_in( target::pins::d43 );
