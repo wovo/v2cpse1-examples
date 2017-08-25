@@ -8,7 +8,7 @@ thread *current_thread;
 class thread {
 private:
    coroutine< 2048 > cor;
-   long long wakeup_time;
+   unsigned long long wakeup_time;
    thread * next;
    
    static void trampoline(){        

@@ -20,7 +20,7 @@ public:
       hwlib::cout << n;
       for( auto p = text; *p != '\0'; ++p ){
          hwlib::cout << *p;
-         sleep( 10 * rtos::ms );
+         hwlib::wait_ms( 10 );
       }
       cout_mutex.signal();
    }

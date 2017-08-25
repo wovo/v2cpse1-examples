@@ -1,3 +1,4 @@
+/*
 #include "hwlib.hpp"
 
 template< typename T, unsigned int N >
@@ -33,4 +34,7 @@ int main( void ){
       }
    }
 }
+*/
+
+int main(){}
 

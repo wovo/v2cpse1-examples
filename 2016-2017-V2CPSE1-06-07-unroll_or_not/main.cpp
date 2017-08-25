@@ -18,7 +18,8 @@ struct loop_unrolled< 0 >{
 template< int N, bool unroll = false, typename T >
 void loop( const T & body ){
    if( unroll ){
-      loop_unrolled< N >( body );
+      typedef loop_unrolled< N > lo;
+	  lo dummy( body );
    } else {         
       for( int i = 0; i < N; ++i ){
          body();
