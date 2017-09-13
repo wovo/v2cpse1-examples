@@ -7,4 +7,5 @@ _codelite.workspace
 *.elf
 *.ld
 *.map
+*.mk
 bmptk_*_stack.c
