@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="2016-2017-V2CPSE1-01-03-asm-print-screen" InternalType="">
+<CodeLite_Project Name="2016-2017-V2CPSE1-01-03-asm-print" InternalType="">
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00020001N0005Debug0000000000000001N0007Release000000000000]]>
