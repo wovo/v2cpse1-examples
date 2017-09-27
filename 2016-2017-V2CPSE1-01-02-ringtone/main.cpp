@@ -240,7 +240,9 @@ void play(player & lsp, const char *s ){
                }
 
                lsp.play( note{ frequency, duration } ); 
-               state = 4;
+			   
+               // 2017-09-27 correction: 3, not 4
+               state = 3;
             } else {
                HWLIB_TRACE << "c=[" << c << "]";
             }
