@@ -8,4 +8,5 @@ _codelite.workspace
 *.ld
 *.map
 *.mk
+*.exe
 bmptk_*_stack.c
