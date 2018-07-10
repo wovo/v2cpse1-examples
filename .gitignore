@@ -1,7 +1,7 @@
 .clang
 .codelite
 _codelite.workspace
-.project
+_codelite.project
 *.o
 *.bin
 *.elf
