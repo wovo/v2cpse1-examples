@@ -1,6 +1,7 @@
+#include <array>
 #include "hwlib.hpp"
 
-double pow( double g, int n ){
+constexpr double pow( double g, int n ){
    double result = 1;
    while( n > 0 ){
        result *= g;
@@ -9,7 +10,7 @@ double pow( double g, int n ){
    return result;
 }
 
-double fac( int n ){
+constexpr double fac( int n ){
    double result = 1;
    while( n > 0 ){
        result *= n;
@@ -18,7 +19,7 @@ double fac( int n ){
    return result;
 }
 
-double sin( double a ){
+constexpr double sin( double a ){
    return 
       a 
       - pow( a, 3 ) / fac( 3 ) 
@@ -29,13 +30,32 @@ double sin( double a ){
       + pow( a, 13 ) / fac( 13 );
 }
 
-double radians_from_degrees( int degrees ){
+constexpr double radians_from_degrees( int degrees ){
    return 2 * 3.14 * ( degrees / 360.0 );
 }
 
-int scaled_sine_from_degrees( int degrees ){
+constexpr int scaled_sine_from_degrees( int degrees ){
    return 30 * ( 1.0 + sin( radians_from_degrees( degrees )));
 }
+
+template< int N, typename T >
+class lookup {
+private:    
+   std::array< T, N > values = {};
+
+public: 
+
+   template< typename F >
+   constexpr lookup( F function ){
+      for( int i = 0; i < N; ++i ){
+          values[ i ] = function( i );
+      }
+   }
+
+   constexpr T get( int n ) const {
+      return values[ n ];    
+   }
+};
 
 int main( void ){	
    
@@ -47,8 +67,10 @@ int main( void ){
 
    hwlib::cout << "sine demo\n\n";
    
+   constexpr auto sinusses = lookup< 360, int >( scaled_sine_from_degrees );
+   
    for( int angle_degrees = 0; angle_degrees < 360; angle_degrees += 10 ){
-      for( int i = 0; i < scaled_sine_from_degrees( angle_degrees ); ++i ){
+      for( int i = 0; i < sinusses.get( angle_degrees ); ++i ){
          hwlib::cout << " ";
       }
       hwlib::cout << "*\n";

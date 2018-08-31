@@ -2,6 +2,7 @@
 .codelite
 __codelite.workspace
 _codelite.project
+compressed.txt
 *.o
 *.bin
 *.elf
