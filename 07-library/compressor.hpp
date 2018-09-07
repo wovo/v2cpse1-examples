@@ -37,7 +37,7 @@ private:
    
    // return the length of the longest identical prefix of s and p
    int count_identical_prefix_length( int s, int p ){
-      return ( ( s > 40 ) || ( buffer[ s ] != buffer[ p ] ))
+      return ( buffer[ s ] != buffer[ p ] )
          ? 0 
          : 1 + count_identical_prefix_length( s + 1, p + 1 );
    }   
