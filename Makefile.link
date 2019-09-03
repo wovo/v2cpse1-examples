@@ -20,7 +20,7 @@ HWLIB             ?= $(TI-SOFTWARE)/hwlib
 include           $(HWLIB)/Makefile.inc
 
 # set BMPTK to the bmptk subdirectory
-BMPTK := C:/ti-software/bmptk
+BMPTK             := $(TI-SOFTWARE)/bmptk
 
 # Defer to the bmptk/Makefile.inc to do the work
 include $(BMPTK)/Makefile.inc
