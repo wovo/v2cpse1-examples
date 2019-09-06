@@ -59,15 +59,12 @@ public:
 
 int main( void ){	
    
-   // kill the watchdog
-   WDT->WDT_MR = WDT_MR_WDDIS;
-   
    // wait for the PC console to start
    hwlib::wait_ms( 1000 );   
 
    hwlib::cout << "sine demo\n\n";
    
-   constexpr sine_lookup sinusses;
+   constexpr lookup sinusses;
    
    for( int angle_degrees = 0; angle_degrees < 360; angle_degrees += 10 ){
       for( int i = 0; i < sinusses.get( angle_degrees ); ++i ){

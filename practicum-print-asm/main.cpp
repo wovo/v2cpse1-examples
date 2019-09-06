@@ -12,7 +12,7 @@ void print_asciz( const char * s ){
 }
 
 void application(){
-   print_asciz( "Hello world\n" );	
+   print_asciz( "Hello world, the ANSWER is 42! @[]`{}~\n" );	
 }
 
 int main( void ){	
