@@ -12,9 +12,6 @@
 RELATIVE          ?= .
 TI-SOFTWARE       := $(RELATIVE)/..
 
-# add Catch
-SEARCH            += $(TI-SOFTWARE)/Catch/include
-
 # add hwlib
 HWLIB             ?= $(TI-SOFTWARE)/hwlib
 include           $(HWLIB)/Makefile.inc
