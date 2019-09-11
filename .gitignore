@@ -2,7 +2,6 @@
 .codelite
 __codelite.workspace
 _codelite.project
-_push.bat
 compressed.txt
 *.o
 *.bin
