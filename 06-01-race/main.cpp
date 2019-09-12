@@ -32,9 +32,8 @@ public:
 
 int main( void ){	
    
-   // kill the watchdog, wait for the PC to start the terminal
-   WDT->WDT_MR = WDT_MR_WDDIS;
-   hwlib::wait_ms( 1000 );
+   // wait for the PC console to start
+   hwlib::wait_ms( 2000 );
    
    auto t1 = logger( " Hello\n" );
    auto t2 = logger( " =========\n" );

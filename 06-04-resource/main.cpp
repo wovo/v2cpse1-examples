@@ -60,9 +60,8 @@ public:
 
 int main( void ){	
    
-   // kill the watchdog
-   WDT->WDT_MR = WDT_MR_WDDIS;
-   hwlib::wait_ms( 500 );
+   // wait for the PC console to start
+   hwlib::wait_ms( 2000 );
    
    rtos::mutex cout_mutex( "cout_mutex" );
    auto t1 = logger( cout_mutex, " Hello\n" );

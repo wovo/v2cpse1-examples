@@ -19,7 +19,7 @@ int main( void ){
    
    namespace target = hwlib::target;   
     
-      // wait for the PC console to start
+   // wait for the PC console to start
    hwlib::wait_ms( 2000 );
 
    application();

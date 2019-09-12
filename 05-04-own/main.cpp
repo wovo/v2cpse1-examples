@@ -39,11 +39,8 @@ int scaled_sine_from_degrees( int degrees ){
 
 int main( void ){	
    
-   // kill the watchdog
-   WDT->WDT_MR = WDT_MR_WDDIS;
-   
    // wait for the PC console to start
-   hwlib::wait_ms( 1000 );   
+   hwlib::wait_ms( 2000 );  
 
    hwlib::cout << "sine demo\n\n";
    

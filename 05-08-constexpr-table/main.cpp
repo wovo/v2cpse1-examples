@@ -40,7 +40,7 @@ constexpr int scaled_sine_from_degrees( int degrees ){
 int main( void ){	
    
    // wait for the PC console to start
-   hwlib::wait_ms( 1000 );   
+   hwlib::wait_ms( 2000 );
 
    hwlib::cout << "sine demo\n\n";
    
