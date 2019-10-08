@@ -18,7 +18,7 @@ HEADERS := message.hpp
 SEARCH  := 
 
 message.cpp: Makefile make_message.exe   
-	make_message splash "Hello brave new world!" > message.cpp
+	./make_message.exe splash "Hello brave new world!" > message.cpp
    
 make_message.exe: make_message.cpp
 	g++ make_message.cpp -o make_message.exe

@@ -11,5 +11,5 @@ int main( void ){
 	std::cout << max( 2.718, 3.14 ) << "\n";
 	
 	// this is a compiler error:
-	std::cout << max( "ab", "cd" ) << "\n";
+//	std::cout << max( "ab", "cd" ) << "\n";
 }

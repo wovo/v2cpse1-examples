@@ -1,7 +1,7 @@
 #include <iostream>
 #include <array>
 
-template< unsigned int N >
+template< long unsigned int N >
 void print( const std::array< int, N > & a  ){
    for( const auto & x : a ){
       std::cout << x << "\n";

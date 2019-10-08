@@ -1,3 +1,3 @@
 // file other.cpp
 
-void f( int x ){}
+// void f( int x ){} // linker error
